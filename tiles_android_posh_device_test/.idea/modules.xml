@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/arrs/arrs.iml" filepath="$PROJECT_DIR$/arrs/arrs.iml" />
+      <module fileurl="file://$PROJECT_DIR$/google-webrtc-1.0.19742/google-webrtc-1.0.19742.iml" filepath="$PROJECT_DIR$/google-webrtc-1.0.19742/google-webrtc-1.0.19742.iml" />
+      <module fileurl="file://$PROJECT_DIR$/opencsv-4.0/opencsv-4.0.iml" filepath="$PROJECT_DIR$/opencsv-4.0/opencsv-4.0.iml" />
+      <module fileurl="file://$PROJECT_DIR$/pocketsphinx-android-5prealpha-release/pocketsphinx-android-5prealpha-release.iml" filepath="$PROJECT_DIR$/pocketsphinx-android-5prealpha-release/pocketsphinx-android-5prealpha-release.iml" />
+      <module fileurl="file://$PROJECT_DIR$/tiles_android_posh_device_test.iml" filepath="$PROJECT_DIR$/tiles_android_posh_device_test.iml" />
+    </modules>
+  </component>
+</project>

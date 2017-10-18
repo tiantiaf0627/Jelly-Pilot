@@ -1,0 +1,1 @@
+include ':app', ':pocketsphinx-android-5prealpha-release', ':arrs', ':google-webrtc-1.0.19742', ':opencsv-4.0'
