@@ -6,6 +6,7 @@ import android.app.Service;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.os.BatteryManager;
+import android.os.Binder;
 import android.os.Build;
 import android.os.Environment;
 import android.os.Handler;
@@ -61,6 +62,7 @@ public class Battery_Service extends Service {
         int    scale   = intent.getIntExtra(BatteryManager.EXTRA_SCALE, 100);
         int    percent = (level*100)/scale;
         Log.d("TILEs", String.valueOf(percent) + "%");
+
         return String.valueOf(percent) + "%";
     }
 
@@ -72,6 +74,7 @@ public class Battery_Service extends Service {
         batteryLevel = getBatteryLevel();
 
         mHandler.postDelayed(mTickExecutor, 10000);
+        
     }
 
     private Runnable mTickExecutor = new Runnable() {

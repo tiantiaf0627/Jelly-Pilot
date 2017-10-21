@@ -20,6 +20,7 @@ import android.os.Bundle;
 import android.util.Log;
 
 import audio_service.Record_Service;
+import audio_service.openSmile_Service;
 import battery_service.Battery_Service;
 import ble_service.BLE_Advertise_Service;
 import ble_service.BLE_Scan_Service;
@@ -39,6 +40,7 @@ public class MainActivity extends AppCompatActivity {
     private final int ENABLE_RECORD         = 3;
     private final int ENABLE_POCKET         = 4;
     private final int ENABLE_BLE            = 5;
+    private final int ENABLE_OPENSMILE      = 6;
     private final int ENABLE_DEFAULT        = 99;
 
     private String DEBUG                = "TILEs";
@@ -156,7 +158,7 @@ public class MainActivity extends AppCompatActivity {
         androidIDLog();
         enPower();
 
-        int DEBUG_MODE = ENABLE_BLE;
+        int DEBUG_MODE = ENABLE_OPENSMILE;
 
         switch (DEBUG_MODE) {
 
@@ -186,6 +188,10 @@ public class MainActivity extends AppCompatActivity {
 
             case ENABLE_DISCOVERABLE:
                 discoverableBT();
+                break;
+
+            case ENABLE_OPENSMILE:
+                startOpenSmileService();
                 break;
 
             default:
@@ -250,6 +256,23 @@ public class MainActivity extends AppCompatActivity {
         alarmManager = (AlarmManager)getSystemService(ALARM_SERVICE);
 
         Intent bt_Intent = new Intent(this, Bluetooth_Scan.class);
+        pendingIntent = PendingIntent.getService(MainActivity.this, 1, bt_Intent, PendingIntent.FLAG_UPDATE_CURRENT);
+
+        /*
+        *   Alarm set repeat is not exact and can have significant drift
+        * */
+        alarmManager.setExact(AlarmManager.ELAPSED_REALTIME_WAKEUP, ALARM_TRIGGER_AT_TIME, pendingIntent);
+
+    }
+
+    private void startOpenSmileService() {
+
+        /*
+        *   Repeat the recording services every 3min (It will vary according to test results)
+        */
+        alarmManager = (AlarmManager)getSystemService(ALARM_SERVICE);
+
+        Intent bt_Intent = new Intent(this, openSmile_Service.class);
         pendingIntent = PendingIntent.getService(MainActivity.this, 1, bt_Intent, PendingIntent.FLAG_UPDATE_CURRENT);
 
         /*
